@@ -25,8 +25,8 @@ col1, col2, col3 = st.columns(3)
 
 # 분야별 매핑
 categories = [
-    ("🔄", "단위 변환기", "pages/01_Converter.py"),
-    ("🔥", "열역학 및 열전달", "pages/02_Thermodynamics_Heat.py"),
+    ("🔄", "단위 변환기", "pages/01_converter.py"),
+    ("🔥", "열역학 및 열전달", "pages/02_Thermodynamics_&_Heat_Transfer.py"),
     ("🌊", "유체역학", "pages/03_Fluid_Mechanics.py"),
     ("🏗️", "재료역학", "pages/04_Solid_Mechanics.py"),
     ("📐", "정역학", "pages/05_Statics.py"),
