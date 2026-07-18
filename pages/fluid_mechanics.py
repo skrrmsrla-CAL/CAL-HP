@@ -4,17 +4,29 @@ import math
 # 페이지 기본 설정
 st.set_page_config(page_title="EngiMate | Fluid Mechanics", page_icon="🌊", layout="centered")
 
+# ---------------------------------------------------------
+# 왼쪽 사이드바 (상세 하위 메뉴 구성)
+# ---------------------------------------------------------
+st.sidebar.header("📂 유체역학 상세 목록")
+menu = st.sidebar.radio(
+    "이동할 계산기를 선택하세요:",
+    [
+        "레이놀즈 수 (Reynolds No.)", 
+        "배관 압력 강하 (Pressure Drop)", 
+        "오리피스 유량 (Orifice Flow)"
+    ]
+)
+
+# 메인 화면 헤더
 st.title("유체역학 기초 계산 (Fluid Mechanics)")
 st.markdown("배관 유동 설계 및 CFD 해석 셋업 전, 유동 특성을 빠르게 파악하기 위한 기초 계산기입니다.")
 st.divider()
 
-# 탭 구성
-tab1, tab2, tab3 = st.tabs(["레이놀즈 수 (Reynolds No.)", "배관 압력 강하 (Pressure Drop)", "오리피스 유량 (Orifice Flow)"])
+# ---------------------------------------------------------
+# 선택된 메뉴에 따라 화면 렌더링
+# ---------------------------------------------------------
 
-# ---------------------------------------------------------
-# Tab 1: 레이놀즈 수 (Reynolds Number)
-# ---------------------------------------------------------
-with tab1:
+if menu == "레이놀즈 수 (Reynolds No.)":
     st.subheader("레이놀즈 수 (Reynolds Number)")
     st.markdown("유동이 층류(Laminar)인지 난류(Turbulent)인지 판별합니다.")
     st.latex(r"Re = \frac{\rho V D}{\mu}")
@@ -41,10 +53,7 @@ with tab1:
     else:
         st.error("점성계수(μ)는 0보다 커야 합니다.")
 
-# ---------------------------------------------------------
-# Tab 2: 배관 압력 강하 (Darcy-Weisbach)
-# ---------------------------------------------------------
-with tab2:
+elif menu == "배관 압력 강하 (Pressure Drop)":
     st.subheader("다르시-바이스바흐 압력 강하")
     st.markdown("직관 내부 마찰로 인해 발생하는 압력 손실을 계산합니다.")
     st.latex(r"\Delta p = f \frac{L}{D} \frac{\rho V^2}{2}")
@@ -66,10 +75,7 @@ with tab2:
     else:
         st.error("배관 직경(D)은 0보다 커야 합니다.")
 
-# ---------------------------------------------------------
-# Tab 3: 오리피스 질량 유량 (Orifice Mass Flow Rate)
-# ---------------------------------------------------------
-with tab3:
+elif menu == "오리피스 유량 (Orifice Flow)":
     st.subheader("오리피스/노즐 질량 유량")
     st.markdown("차압(Δp)을 이용하여 밸브나 오리피스를 통과하는 유량을 산출합니다.")
     st.latex(r"\dot{m} = C_d A \sqrt{2 \rho \Delta p}")
