@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="EngiMate | Unit Converter", page_icon="🔄", layout="centered")
 
 # 헤더 영역
-st.title("통합 공학 단위 변환기 (Pro)")
+st.title("통합 공학 단위 변환기 (Pro Max)")
 st.markdown("기계, 화공, 플랜트, 전기전자 및 전통 단위를 아우르는 마스터 공학 변환기입니다.")
 st.divider()
 
@@ -44,6 +44,12 @@ conversion_factors = {
     "질량유량 (Mass Flow Rate)": {
         "kg/s": 1.0, "kg/h": 0.000277778, "lb/s": 0.453592, "lb/h": 0.000125998
     },
+    "체적유량 (Volumetric Flow Rate)": {
+        "m³/s": 1.0, "m³/h": 0.000277778, "L/min (LPM)": 1.66667e-5, "ft³/min (CFM)": 0.000471947, "gal/min (GPM)": 6.30902e-5
+    },
+    "몰유량 (Molar Flow Rate)": {
+        "mol/s": 1.0, "kmol/h": 0.277778, "lb-mol/h": 0.125998
+    },
     "밀도 (Density)": {
         "kg/m³": 1.0, "g/cm³": 1000.0, "lb/ft³": 16.01846
     },
@@ -52,6 +58,9 @@ conversion_factors = {
     },
     "비중량 (Specific Weight)": {
         "N/m³": 1.0, "kgf/m³": 9.80665, "lbf/ft³": 157.087
+    },
+    "몰농도 (Molarity)": {
+        "mol/L (M)": 1.0, "mmol/L": 0.001, "kmol/m³": 1.0
     },
     "힘 (Force)": {
         "N (뉴턴)": 1.0, "kN (킬로뉴턴)": 1000.0, "kgf (킬로그램힘)": 9.80665,
@@ -62,6 +71,9 @@ conversion_factors = {
         "bar (바)": 100000.0, "atm (기압)": 101325.0, "psi (파운드/제곱인치)": 6894.757,
         "mmHg (수은주밀리미터)": 133.3224, "mmH2O (수주밀리미터)": 9.80665,
         "Torr (토르)": 133.3224, "inHg (수은주인치)": 3386.389
+    },
+    "응력 및 탄성계수 (Stress & Modulus)": {
+        "MPa": 1.0, "Pa": 1e-6, "GPa": 1000.0, "kgf/mm²": 9.80665, "psi": 0.00689476, "ksi": 6.89476
     },
     "토크 (Torque)": {
         "N·m": 1.0, "kgf·m": 9.80665, "lbf·ft": 1.355818
@@ -78,6 +90,12 @@ conversion_factors = {
     "비열 및 엔트로피 (Specific Heat & Entropy)": {
         "J/(kg·K)": 1.0, "kJ/(kg·K)": 1000.0, "kcal/(kg·°C)": 4184.0, "BTU/(lb·°F)": 4184.0
     },
+    "열전도도 (Thermal Conductivity)": {
+        "W/(m·K)": 1.0, "kcal/(h·m·°C)": 1.16222, "BTU/(h·ft·°F)": 1.73073
+    },
+    "열전달계수 (Heat Transfer Coefficient)": {
+        "W/(m²·K)": 1.0, "kcal/(h·m²·°C)": 1.16222, "BTU/(h·ft²·°F)": 5.67826
+    },
     "표면장력 (Surface Tension)": {
         "N/m": 1.0, "mN/m": 0.001, "dyn/cm": 0.001
     },
@@ -86,6 +104,12 @@ conversion_factors = {
     },
     "동점성/확산계수 (Kinematic Visc. & Diffusion)": {
         "m²/s": 1.0, "cm²/s": 1e-4, "St (스토크스)": 1e-4, "cSt (센티스토크스)": 1e-6
+    },
+    "단면 2차 모멘트 (Area Moment of Inertia)": {
+        "m⁴": 1.0, "cm⁴": 1e-8, "mm⁴": 1e-12, "in⁴": 4.16231e-7
+    },
+    "질량 관성 모멘트 (Mass Moment of Inertia)": {
+        "kg·m²": 1.0, "g·cm²": 1e-7, "lb·ft²": 0.0421401
     },
     "전류 (Electric Current)": {
         "A (암페어)": 1.0, "mA (밀리암페어)": 0.001, "uA (마이크로암페어)": 1e-6
