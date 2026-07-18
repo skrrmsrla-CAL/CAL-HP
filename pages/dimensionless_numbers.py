@@ -33,6 +33,7 @@ if "Reynolds" in selected_num:
     st.subheader("레이놀즈 수 (Reynolds Number)")
     st.markdown("**관성력 (Inertial force) / 점성력 (Viscous force)**")
     st.latex(r"Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}")
+    st.info("💡 **이론적 의미:** 유동이 층류(Laminar)인지 난류(Turbulent)인지를 결정하는 가장 중요한 지표입니다. 유속이 빠르고(관성력 증가) 점성이 낮을수록(점성력 감소) Re가 커지며, 이는 유체의 흐름이 불규칙해지고 난류가 발생하기 쉽다는 것을 의미합니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -51,8 +52,9 @@ if "Reynolds" in selected_num:
 # ---------------------------------------------------------
 elif "Froude" in selected_num:
     st.subheader("프라우드 수 (Froude Number)")
-    st.markdown("**관성력 (Inertial force) / 중력 (Gravitational force)** - 선박 조파 저항 및 개수로 유동에 사용")
+    st.markdown("**관성력 (Inertial force) / 중력 (Gravitational force)**")
     st.latex(r"Fr = \frac{V}{\sqrt{g L}}")
+    st.info("💡 **이론적 의미:** 선박이 물 위를 나아갈 때 발생하는 조파 저항(Wave-making resistance)이나 댐, 하천 등의 자유 표면(Free surface) 유동을 해석할 때 핵심이 되는 수치입니다. 모형 시험 결과를 실제 크기(Scale-up)로 변환할 때 필수적으로 일치시켜야 하는 조건입니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -70,8 +72,9 @@ elif "Froude" in selected_num:
 # ---------------------------------------------------------
 elif "Prandtl" in selected_num:
     st.subheader("프란틀 수 (Prandtl Number)")
-    st.markdown("**운동량 확산 (Momentum diffusivity) / 열 확산 (Thermal diffusivity)** - 유체 고유의 물성치")
+    st.markdown("**운동량 확산 (Momentum diffusivity) / 열 확산 (Thermal diffusivity)**")
     st.latex(r"Pr = \frac{\nu}{\alpha} = \frac{c_p \mu}{k}")
+    st.info("💡 **이론적 의미:** 유속이나 기하학적 형태에 의존하지 않는 **'유체 고유의 물성치'**입니다. Pr이 1에 가까우면 속도 경계층과 온도 경계층의 두께가 비슷하게 발달함을 의미하며, 액체 금속은 Pr이 매우 작고 윤활유 등은 매우 큽니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -89,8 +92,9 @@ elif "Prandtl" in selected_num:
 # ---------------------------------------------------------
 elif "Mach" in selected_num:
     st.subheader("마하 수 (Mach Number)")
-    st.markdown("**관성력 (Inertial force) / 압축력 (Compressibility force)** - 유속과 음속의 비율")
+    st.markdown("**유속 (Flow velocity) / 음속 (Speed of sound)**")
     st.latex(r"Ma = \frac{V}{c}")
+    st.info("💡 **이론적 의미:** 관성력과 압축력의 비율을 의미합니다. 통상적으로 Ma가 0.3을 초과하면 유동에 따른 밀도 변화가 커지므로, 단순 비압축성이 아닌 압축성 유동(Compressible flow) 방정식을 사용하여 해석해야 합니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -107,8 +111,9 @@ elif "Mach" in selected_num:
 # ---------------------------------------------------------
 elif "Weber" in selected_num:
     st.subheader("웨버 수 (Weber Number)")
-    st.markdown("**관성력 (Inertial force) / 표면장력 (Surface tension force)** - 액적 분열, 다상 유동 해석")
+    st.markdown("**관성력 (Inertial force) / 표면장력 (Surface tension force)**")
     st.latex(r"We = \frac{\rho V^2 L}{\sigma}")
+    st.info("💡 **이론적 의미:** 서로 섞이지 않는 다상 유동(Multiphase flow)에서 표면장력의 영향을 평가할 때 사용됩니다. 스프레이 노즐 분사 시 액적이 어떻게 분열되는지, 또는 얇은 막(Film) 유동이 어떻게 형성되는지를 해석할 때 중요합니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -127,8 +132,9 @@ elif "Weber" in selected_num:
 # ---------------------------------------------------------
 elif "Euler" in selected_num:
     st.subheader("오일러 수 (Euler Number)")
-    st.markdown("**압력차 (Pressure force) / 관성력 (Inertial force)** - 배관 및 밸브 압력 강하 평가")
+    st.markdown("**압력차 (Pressure force) / 관성력 (Inertial force)**")
     st.latex(r"Eu = \frac{\Delta p}{\rho V^2}")
+    st.info("💡 **이론적 의미:** 펌프, 송풍기, 밸브 및 배관망 등에서 발생하는 유체 저항이나 압력 분포의 상사성을 평가할 때 쓰입니다. 손실 계수(Loss coefficient)와 직접적으로 연관되어 시스템의 압력 강하를 산정하는 데 활용됩니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -148,6 +154,7 @@ elif "Nusselt" in selected_num:
     st.subheader("누셀트 수 (Nusselt Number)")
     st.markdown("**대류 열전달 (Convective heat transfer) / 전도 열전달 (Conductive heat transfer)**")
     st.latex(r"Nu = \frac{h L}{k}")
+    st.info("💡 **이론적 의미:** 유체의 흐름(유동)으로 인해 고체 표면에서의 열전달이 단순히 전도만 일어날 때보다 얼마나 촉진되는지를 나타내는 지표입니다. 열교환기나 방열판 설계 시, 대류 열전달 계수(h)를 구하기 위한 핵심 파라미터입니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -165,8 +172,9 @@ elif "Nusselt" in selected_num:
 # ---------------------------------------------------------
 elif "Grashof" in selected_num:
     st.subheader("그라스호프 수 (Grashof Number)")
-    st.markdown("**부력 (Buoyancy force) / 점성력 (Viscous force)** - 자연 대류 유동에서 레이놀즈 수를 대체")
+    st.markdown("**부력 (Buoyancy force) / 점성력 (Viscous force)**")
     st.latex(r"Gr = \frac{g \beta (T_s - T_\infty) L^3}{\nu^2}")
+    st.info("💡 **이론적 의미:** 펌프 등의 외부 동력 없이, 유체 내부의 온도차로 인한 밀도 변화가 만들어내는 '자연 대류(Natural convection)'에서 강제 대류의 레이놀즈 수(Re)와 같은 역할을 합니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -188,6 +196,7 @@ elif "Peclet" in selected_num:
     st.subheader("페클레 수 (Peclet Number)")
     st.markdown("**이류 속도 (Advective transport rate) / 확산 속도 (Diffusive transport rate)**")
     st.latex(r"Pe = \frac{L V}{\alpha} = Re \cdot Pr")
+    st.info("💡 **이론적 의미:** 유체의 흐름 자체에 의해 열(또는 물질)이 전달되는 속도와 분자 단위의 확산에 의해 전달되는 속도의 비입니다. 유속이 빠를수록 Pe가 커지며, 열전달 현상에서 이류(Advection)가 지배적이게 됩니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -205,8 +214,9 @@ elif "Peclet" in selected_num:
 # ---------------------------------------------------------
 elif "Schmidt" in selected_num:
     st.subheader("슈미트 수 (Schmidt Number)")
-    st.markdown("**운동량 확산 (Momentum diffusivity) / 질량 확산 (Mass diffusivity)** - 물질 전달 공정")
+    st.markdown("**운동량 확산 (Momentum diffusivity) / 질량 확산 (Mass diffusivity)**")
     st.latex(r"Sc = \frac{\nu}{D_m} = \frac{\mu}{\rho D_m}")
+    st.info("💡 **이론적 의미:** 물질 전달(Mass transfer) 공정에서 유속에 의한 속도 경계층과 농도 차이에 의한 농도 경계층의 상대적인 두께를 나타냅니다. 열전달 현상에서의 프란틀 수(Pr)와 완전히 상응하는 화공 특화 무차원 수입니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
@@ -223,8 +233,9 @@ elif "Schmidt" in selected_num:
 # ---------------------------------------------------------
 elif "Strouhal" in selected_num:
     st.subheader("스트로할 수 (Strouhal Number)")
-    st.markdown("**유동의 진동 특성** - 카르만 와류(Karman Vortex) 등 진동하는 비정상(Unsteady) 유동")
+    st.markdown("**진동 관성력 (Oscillation inertial force) / 평균 관성력 (Mean inertial force)**")
     st.latex(r"St = \frac{f L}{V}")
+    st.info("💡 **이론적 의미:** 굴뚝이나 원통 기둥 뒤에서 발생하는 카르만 와류(Karman vortex) 방출 등, 유동이 주기적으로 진동하는 비정상(Unsteady) 현상을 예측하고 구조물의 공진 여부를 평가할 때 필수적인 지표입니다.", icon="💡")
     
     col1, col2 = st.columns(2)
     with col1:
